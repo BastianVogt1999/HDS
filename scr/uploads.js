@@ -4,12 +4,12 @@ function uploadFile(catNumber, fileInput) {
     
 
     //In Einzelliste
-    var fileRef = storage.ref('Kategorie '+ catNumber + '/' +fileInput);
+    var fileRef = storage.ref('Kategorie'+ catNumber + '/' +fileInput);
     var file = document.getElementById('fileInput').files[0];
     var uploadTask = fileRef.put(file);
     
     //In Gesamtliste
-    var fileRef = storage.ref('Alle Bilder/fileInput');
+    var fileRef = storage.ref('AlleBilder/'+fileInput);
     var file = document.getElementById('fileInput').files[0];
     var uploadTask = fileRef.put(file);
   /*
@@ -27,4 +27,25 @@ function uploadFile(catNumber, fileInput) {
       }
     );
     */
+  }
+
+  function zeigeBild(){
+    document.getElementById('bildAuswahl').addEventListener('change', function(event) {
+        const ausgewähltesBild = event.target.files[0];
+        const bildAnzeige = document.getElementById('bildAnzeige');
+      
+        if (ausgewähltesBild) {
+          const reader = new FileReader();
+      
+          reader.onload = function() {
+            const bildElement = document.createElement('img');
+            bildElement.src = reader.result;
+            bildElement.style.maxWidth = '100%';
+            bildAnzeige.innerHTML = '';
+            bildAnzeige.appendChild(bildElement);
+          }
+      
+          reader.readAsDataURL(ausgewähltesBild);
+        }
+      });
   }

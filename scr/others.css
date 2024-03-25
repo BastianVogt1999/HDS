@@ -8,7 +8,7 @@
   /* Hintergrundbild für Bildschirmbreiten kleiner als 600px */
   @media screen and (max-width: 600px) {
     .background {
-      background-image: url('assets/background.jpg');
+      background-image: url('assets/background_small.jpg');
     }
   }
   
@@ -20,7 +20,7 @@
   }
 
   .placeholder1 {
-    height: 0px;
+    height: 1%;
   }
   .placeholder1 {
     height: 600px;
