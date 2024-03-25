@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="buttons.css">
+<link rel="stylesheet" href="others.css">
+<link rel="stylesheet" href="buttons2.css">
+<title>Hochzeitsbilder D&S ❤</title>
+<!-- Firebase SDK (9.1.3) ohne ES6-Module -->
+<script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-storage-compat.js"></script>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyDYFbsanYvcbKqo8KkLh36Hwy7DF1Bj6ks",
+  authDomain: "hochzeitds-747ec.firebaseapp.com",
+  databaseURL: "https://hochzeitds-747ec-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "hochzeitds-747ec",
+  storageBucket: "hochzeitds-747ec.appspot.com",
+  messagingSenderId: "781298465124",
+  appId: "1:781298465124:web:087c588a8d42c2f83c6271",
+  measurementId: "G-KWYMNE7487"
+};
+
+// Initialisiere Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Funktion zum Hochladen der Datei und Anzeigen des Bildes
+function uploadFile(category, input) {
+  const file = input.files[0];
+  const storageRef = firebase.storage().ref(`category_${category}/${file.name}`);
+  const task = storageRef.put(file);
+  
+  task.then(snapshot => {
+    console.log('Uploaded a file:', snapshot.metadata.name);
+    // Zeige das hochgeladene Bild an
+    const url = snapshot.metadata.fullPath;
+    const img = document.createElement('img');
+    img.src = url;
+    document.getElementById('imageContainer').appendChild(img);
+  }).catch(error => {
+    console.error('Error uploading file:', error);
+  });
+}
+</script>
+
+<script src="uploads.js"></script>
+</head>
+<body>
+    <Center>
+        <div class="background">
+
+<input type="file" id="fileInput" class="button-19">
+<div class="placeholder1"></div>
+<button onclick="uploadFile(1, fileInput)" class="button">Datei hochladen in Kategorie 1</button>
+<button onclick="uploadFile(2, fileInput)" class="button">Datei hochladen in Kategorie 2</button>
+<button onclick="uploadFile(3, fileInput)" class="button">Datei hochladen in Kategorie 3</button>
+<button onclick="uploadFile(4, fileInput)" class="button">Datei hochladen in Kategorie 4</button>
+<button onclick="uploadFile(5, fileInput)" class="button">Datei hochladen in Kategorie 5</button>
+<button onclick="uploadFile(6, fileInput)" class="button">Datei hochladen in Kategorie 6</button>
+<button onclick="uploadFile(7, fileInput)" class="button">Datei hochladen in Kategorie 7</button>
+<button onclick="uploadFile(8, fileInput)" class="button">Datei hochladen in Kategorie 8</button>
+<button onclick="uploadFile(9, fileInput)" class="button">Datei hochladen in Kategorie 9</button>
+<button onclick="uploadFile(10, fileInput)" class="button">Datei hochladen in Kategorie 10</button>
+<div class="placeholder2"></div>
+
+<!-- Bereich, um ausgewählte Bilder anzuzeigen -->
+<div id="imageContainer"></div>
+
+</div>
+</Center>
+
+</body>
+</html>

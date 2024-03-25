@@ -1,0 +1,28 @@
+/* Gemeinsame Stile für das Hintergrundbild */
+.background {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  /* Hintergrundbild für Bildschirmbreiten kleiner als 600px */
+  @media screen and (max-width: 600px) {
+    .background {
+      background-image: url('assets/background.jpg');
+    }
+  }
+  
+  /* Hintergrundbild für Bildschirmbreiten größer oder gleich 600px */
+  @media screen and (min-width: 600px) {
+    .background {
+      background-image: url('assets/background.jpg');
+    }
+  }
+
+  .placeholder1 {
+    height: 0px;
+  }
+  .placeholder1 {
+    height: 600px;
+  }
+
