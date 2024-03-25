@@ -26,3 +26,16 @@
     height: 600px;
   }
 
+  .invisible {
+    display: none;
+  }
+  .visible {
+    display: block;
+  }
+
+  .title {
+    background-image: url('assets/background.jpg');
+    width: 100%;
+    font-size: 40px;
+  }
+

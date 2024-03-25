@@ -55,6 +55,7 @@ function displaySelectedImage() {
       img.src = e.target.result;
       document.getElementById('imageContainer').innerHTML = ''; // Leere den Container, um das vorherige Bild zu entfernen
       document.getElementById('imageContainer').appendChild(img); // Füge das ausgewählte Bild hinzu
+      document.getElementById("container").classList.add("visible");
     }
     
     reader.readAsDataURL(file);
@@ -65,30 +66,54 @@ function displaySelectedImage() {
 <script src="uploads.js"></script>
 </head>
 <body>
+  <div class="main">
+    <h1>Hochzeitbsilder<div class="roller">
+      
+      <span id="rolltext">David und<br/>
+      Sophia<br/>
+      Curiosity<br/>
+     
+      </div>
+      </h1>
+      
+    </div>
+    
+  <div class="background">
     <Center>
-        <div class="background">
+        
 
 <input type="file" id="fileInput" class="button-19" onchange="displaySelectedImage()">
+
+<!--  imageContainer für preview --> 
 <div id="bildAnzeige"></div>
+
 <script src="bildAuswahl()""></script>
+
+
+  <!-- Bereich, um ausgewählte Bilder anzuzeigen -->
+  <div id="imageContainer" style="max-width: 100%; max-height: 300px;"></div>
+<div id="container">
+ 
+  <div style="margin-bottom: 200px"></div>
+
+<button onclick="uploadFile(1, fileInput)" class="button">Kategorie 1</button>
+<button onclick="uploadFile(2, fileInput)" class="button">Kategorie 2</button>
+<button onclick="uploadFile(3, fileInput)" class="button">Kategorie 3</button>
+<button onclick="uploadFile(4, fileInput)" class="button">Kategorie 4</button>
+<button onclick="uploadFile(5, fileInput)" class="button">Kategorie 5</button>
+<button onclick="uploadFile(6, fileInput)" class="button">Kategorie 6</button>
+<button onclick="uploadFile(7, fileInput)" class="button">Kategorie 7</button>
+<button onclick="uploadFile(8, fileInput)" class="button">Kategorie 8</button>
+<button onclick="uploadFile(9, fileInput)" class="button">Kategorie 9</button>
+<button onclick="uploadFile(10, fileInput)" class="button">Kategorie 10</button>
+</div>
 <div style="margin-bottom: 200px"></div>
-<button onclick="uploadFile(1, fileInput)" class="button">Bild hochladen in Kategorie 1</button>
-<button onclick="uploadFile(2, fileInput)" class="button">Bild hochladen in Kategorie 2</button>
-<button onclick="uploadFile(3, fileInput)" class="button">Bild hochladen in Kategorie 3</button>
-<button onclick="uploadFile(4, fileInput)" class="button">Bild hochladen in Kategorie 4</button>
-<button onclick="uploadFile(5, fileInput)" class="button">Bild hochladen in Kategorie 5</button>
-<button onclick="uploadFile(6, fileInput)" class="button">Bild hochladen in Kategorie 6</button>
-<button onclick="uploadFile(7, fileInput)" class="button">Bild hochladen in Kategorie 7</button>
-<button onclick="uploadFile(8, fileInput)" class="button">Bild hochladen in Kategorie 8</button>
-<button onclick="uploadFile(9, fileInput)" class="button">Bild hochladen in Kategorie 9</button>
-<button onclick="uploadFile(10, fileInput)" class="button">Bild hochladen in Kategorie 10</button>
 <div class="placeholder2"></div>
 
-<!-- Bereich, um ausgewählte Bilder anzuzeigen -->
-<div id="imageContainer"></div>
+</Center>
 
 </div>
-</Center>
+</div>
 
 </body>
 </html>
